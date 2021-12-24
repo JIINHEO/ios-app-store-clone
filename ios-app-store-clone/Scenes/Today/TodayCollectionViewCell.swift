@@ -6,6 +6,7 @@
 //
 import SnapKit
 import UIKit
+import Kingfisher
 
 
 final class TodayCollectionViewCell: UICollectionViewCell {
@@ -41,7 +42,7 @@ final class TodayCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
-    func setup() {
+    func setup(today: Today) {
         setupSubViews()
         
         //이미지가 아닌 셀에
@@ -49,9 +50,13 @@ final class TodayCollectionViewCell: UICollectionViewCell {
         layer.shadowOpacity = 0.3
         layer.cornerRadius = 10
         
-        subTitleLabel.text = "서브타이틀"
-        titleLabel.text = "앱의 이름"
-        descriptionLabel.text = "설명설명"
+        subTitleLabel.text = today.subTitle
+        titleLabel.text = today.title
+        descriptionLabel.text = today.description
+        
+        if let imageURL = URL(string: today.imageURL){ //URL은 초기화 메서드 리턴값이 옵셔널이기 때문에 옵셔널 체이닝을 해야함
+            imageView.kf.setImage(with: imageURL) //옵셔널이 아니면
+        }
     }
 }
 

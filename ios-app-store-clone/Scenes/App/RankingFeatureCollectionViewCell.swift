@@ -18,7 +18,7 @@ final class RankingFeatureCollectionViewCell: UICollectionViewCell {
         imageView.layer.borderColor = UIColor.tertiaryLabel.cgColor
         imageView.backgroundColor = .tertiarySystemBackground
         
-        return imageView
+        return imageView 
     }()
     
     private lazy var titleLabel: UILabel = {
