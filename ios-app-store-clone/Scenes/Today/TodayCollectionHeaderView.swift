@@ -7,13 +7,14 @@
 
 import SnapKit
 import UIKit
+import SwiftUI
 
 final class TodayCollectionHeaderView:UICollectionReusableView {
     //헤더, 푸터를 상속하기 위해서는 reusableView를 상속해야한다.
     
     private lazy var dateLabel: UILabel = {
         let label = UILabel()
-        label.text = "12월 23일 목요일"
+        label.text = today()
         label.font =  .systemFont(ofSize: 14.0, weight: .semibold)
         label.textColor = .secondaryLabel
         
@@ -28,6 +29,15 @@ final class TodayCollectionHeaderView:UICollectionReusableView {
         
         return label
     }()
+    
+    private func today() -> String {
+         let now = Date()
+         let date = DateFormatter()
+         date.locale = Locale(identifier: "ko_kr")
+         date.dateFormat = "MM월 dd일 EEEE"
+         let kr = date.string(from: now)
+         return kr
+     }
     
     func setupViews() {
         [dateLabel, titleLabel].forEach {addSubview($0)}

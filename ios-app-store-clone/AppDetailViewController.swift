@@ -51,6 +51,7 @@ final class AppDetailViewController: UIViewController {
         let button = UIButton()
         button.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
         button.tintColor = .systemBlue
+        button.addTarget(self, action: #selector(didTapShareButton), for: .touchUpInside)
         
         return button
     }()
@@ -71,9 +72,12 @@ final class AppDetailViewController: UIViewController {
         view.backgroundColor = .systemBackground
         setupViews()
         
-        appIconImageView.backgroundColor = .lightGray
         titleLabel.text = today.title
         subTitleLabel.text = today.subTitle
+        
+        if let imageURL = URL(string: today.imageURL){ //URL은 초기화 메서드 리턴값이 옵셔널이기 때문에 옵셔널 체이닝을 해야함
+            appIconImageView.kf.setImage(with: imageURL) //옵셔널이 아니면
+        }
     }
 }
 
@@ -119,6 +123,12 @@ private extension AppDetailViewController {
             $0.height.equalTo(24.0)
             $0.width.equalTo(60.0)
         }
+    }
+    
+    @objc func didTapShareButton() {
+        let activityItems: [Any] = [today.title]
+        let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+        present(activityViewController, animated: true, completion: nil)
     }
     
 }
