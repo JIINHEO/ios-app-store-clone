@@ -58,12 +58,12 @@ final class RankingFeatureCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    func setup() {
+    func setup(rankingFeature: RankingFeature) {
         setupLayout()
         
-        titleLabel.text = "앱 이름"
-        descriptionLabel.text = "~~~~~~입니다"
-        inAppPurchaseInforLable.isHidden = [true, false].randomElement() ?? true
+        titleLabel.text = rankingFeature.title
+        descriptionLabel.text = rankingFeature.description
+        inAppPurchaseInforLable.isHidden = !rankingFeature.isInPurchaseApp
     }
     
 }
