@@ -65,8 +65,8 @@ final class RankingFeatureCollectionViewCell: UICollectionViewCell {
         descriptionLabel.text = rankingFeature.description
         inAppPurchaseInforLable.isHidden = !rankingFeature.isInPurchaseApp
     }
-    
 }
+
 //MARK: Private
 private extension RankingFeatureCollectionViewCell {
     func setupLayout() {
