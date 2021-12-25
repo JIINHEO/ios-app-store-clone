@@ -134,8 +134,8 @@
 				E8472233277422FF0091A083 /* FeatureSectionView.swift */,
 				E8472235277431150091A083 /* FeatureSectionCollectionViewCell.swift */,
 				E84722372774357F0091A083 /* SeparatorView.swift */,
-				E847223B277444650091A083 /* RankingFeatureCollectionViewCell.swift */,
 				E847223927743CB80091A083 /* RankingFeatureSectionView.swift */,
+				E847223B277444650091A083 /* RankingFeatureCollectionViewCell.swift */,
 				E847223D27744F4F0091A083 /* ExchangeCodeButtonView.swift */,
 			);
 			path = App;
